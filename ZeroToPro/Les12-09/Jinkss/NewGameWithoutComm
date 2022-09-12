@@ -1,0 +1,54 @@
+BTCwallet = 0.0
+USDwallet = 0.0
+BTCurency = 22000.50
+
+while True : 
+
+    print("у вас есть 1 видеокарта с помощью которой вы можете майнить 0.1BTC") 
+    UserGame =  input("Майнить(1)/Продать(2)/КупитьBTC(3):")
+
+    if UserGame=="1":
+        print("запускается процесс майнинга...")
+        BTCwallet = BTCwallet + 0.1 
+        BTCwallet = round(BTCwallet, 2) 
+        print("Balance:"+str(BTCwallet))
+
+    elif UserGame=="2":
+        print("Выполняется продажа битка...")
+        BTCsale = input("сколько битка вы хотите продать?Balace:"+str(BTCwallet)) 
+        if float(BTCsale)>BTCwallet:
+            print("На вашем кошельке недостаточно BTC... Balance: "+str(BTCwallet))
+        elif float(BTCsale)<=BTCwallet:
+            print("запускается процесс продажи...")
+            USDwallet = BTCwallet*BTCurency 
+            BTCwallet = BTCwallet-float(BTCsale)
+            USDwallet = round(USDwallet, 2)
+            BTCwallet = round(BTCwallet, 2) 
+            print("вы успешно продали биток...(Balace BTC)" + str(BTCwallet)+ "   (Balance USD)" + str(USDwallet))
+
+    elif UserGame=="3":
+       BuyBTC = input("сколько BTC вы хотите купить?")
+       if float(BuyBTC)>USDwallet:
+           print("у вас мало средств для покупки BTC...")
+           #elif float(BuyBTC)>=USDwallet:
+           print("запускается процесс покупки...")
+           USDwallet = USDwallet-float(BuyBTC)*BTCurency
+           BTCwallet = BTCwallet+float(BuyBTC)*BTCurency 
+           USDwallet = round(USDwallet, 2) 
+           BTCwallet = round(BTCwallet, 2) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
