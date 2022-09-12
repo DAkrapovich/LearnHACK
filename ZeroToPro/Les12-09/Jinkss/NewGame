@@ -1,0 +1,58 @@
+BTCwallet = 0.0
+USDwallet = 0.0
+BTCurency = 22000.50
+
+while True : # тут и так понятно
+
+    print("у вас есть 1 видеокарта с помощью которой вы можете майнить 0.1BTC") # тут тоже понятно и так
+    UserGame =  input("Майнить(1)/Продать(2)/КупитьBTC(3):") # <<<>>>и тут понятно
+
+    if UserGame=="1": # <<<тут я долго не мог понять почему она не выберала (1)
+        # оказывается возле UserGame единичку нужно было в строку взять >>>
+        print("запускается процесс майнинга...")
+        BTCwallet = BTCwallet + 0.1 # <<< тут вообщем все просто мы к кошельку добавляем + 0.01 >>>
+        BTCwallet = round(BTCwallet, 2) # <<< тут round я добавил когда заканчивал код >>>
+        print("Balance:"+str(BTCwallet)) # <<< тут понятно >>>
+
+    elif UserGame=="2":
+        print("Выполняется продажа битка...")
+        BTCsale = input("сколько битка вы хотите продать?Balace:"+str(BTCwallet)) # <<< тут я тоже только потом
+        # допер что нужно добавить BTSsale >>>
+        if float(BTCsale)>BTCwallet: # <<< про float я подсмотрел в GIT >>>
+            print("На вашем кошельке недостаточно BTC... Balance: "+str(BTCwallet))
+        elif float(BTCsale)<=BTCwallet: # <<< тут я сначала сделал без равно но потом подсмотрел и добавил >>>
+            print("запускается процесс продажи...")
+            USDwallet = BTCwallet*BTCurency # <<< тут до меня долго доходило что и с чем нужно сделать  >>>
+            BTCwallet = BTCwallet-float(BTCsale) # <<< тут так же само долго доходило >>>
+            USDwallet = round(USDwallet, 2) # <<< здесь решил перестраховатся >>>
+            BTCwallet = round(BTCwallet, 2) # <<< и тут тоже страховка >>>
+            print("вы успешно продали биток...(Balace BTC)" + str(BTCwallet)+ "   (Balance USD)" + str(USDwallet))
+
+    elif UserGame=="3":
+       BuyBTC = input("сколько BTC вы хотите купить?")
+       if float(BuyBTC)>USDwallet:
+           print("у вас мало средств для покупки BTC...")
+           #elif float(BuyBTC)>=USDwallet:  <<< эта дура не хочет запускатся потому что говорит
+           # что тут что то не так в синтаксисе >>>
+           print("запускается процесс покупки...")
+           USDwallet = USDwallet-float(BuyBTC)*BTCurency # <<< я ашалеть какой мозг я сам в шоке как я
+           # додумался до такой формулы прикинь >>>
+           BTCwallet = BTCwallet+float(BuyBTC)*BTCurency # <<< я считаю сделал все по красоте >>>
+           USDwallet = round(USDwallet, 2) # <<< тут решил застроховать >>>
+           BTCwallet = round(BTCwallet, 2) # <<< и тут тоже >>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
